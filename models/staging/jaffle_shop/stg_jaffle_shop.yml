@@ -2,18 +2,23 @@ version: 2
 
 models:
   - name: stg_customers
+    description: One unique customer per row
     columns: 
       - name: customer_id
+        description: Primary key for stg_customers
         tests:
           - unique
           - not_null
   - name: stg_orders
+    description: Staged order data from the jaffle shop app
     columns: 
       - name: order_id
+        description: Primary key for orders
         tests:
           - unique
           - not_null
       - name: status
+        description: '{{doc("order_status")}}'
         tests:
           - accepted_values:
               values: ['completed','shipped','returned','placed','return_pending']
@@ -22,5 +27,7 @@ models:
           - relationships:
               to: ref('stg_customers')
               field: customer_id
+  - name: stg_payments
+    description: Staged payment data - super helpful professional documentation :)
             
     

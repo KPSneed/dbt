@@ -9,7 +9,7 @@ with payments as (
         -- amount is stored in cents, convert it to dollars ---Practice did not state the amount field was in cents or dollars
         amount / 100 as amount,
         created as created_date
-    from dbt_datasets.raw_payments
+    from {{source('dbt_datasets','raw_payments')}}
 
 )
 

@@ -1,0 +1,31 @@
+version: 2
+
+sources:
+  - name: dbt_datasets
+    description: A clone of a Postgres application database
+    database: glass-episode-327419
+    tables:
+      - name: raw_customers
+        description: Raw customer data
+        columns:
+         - name: id
+           description: Primary key for customers
+           tests:
+             - unique
+             - not_null
+      - name: raw_orders
+        description: Raw order data
+        columns:
+         - name: id
+           description: Primary key for orders
+           tests:
+             - unique
+             - not_null
+      - name: raw_payments
+        description: Raw payment data
+        columns:
+         - name: id
+           description: Primary key for payments
+           tests:
+             - unique
+             - not_null

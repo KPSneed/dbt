@@ -6,7 +6,7 @@ with orders as (
         order_date,
         status
 
-    from dbt_datasets.raw_orders
+    from {{ source('dbt_datasets','raw_orders')}}
 
 )
 

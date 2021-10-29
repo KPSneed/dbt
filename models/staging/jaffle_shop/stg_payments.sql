@@ -8,6 +8,7 @@ with payments as (
 
         -- amount is stored in cents, convert it to dollars ---Practice did not state the amount field was in cents or dollars
         amount / 100 as amount,
+        {{ cents_to_dollars('amount', 4) }} as amount_macro,
         created as created_date
     from {{source('dbt_datasets','raw_payments')}}
 
